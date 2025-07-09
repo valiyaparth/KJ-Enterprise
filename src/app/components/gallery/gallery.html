@@ -1,0 +1,14 @@
+<div class="gallery-section">
+  <h2 class="section-title">Gallery</h2>
+  <div class="gallery-carousel" #galleryTrack>
+    <button class="gallery-arrow left" (click)="scrollLeft()">
+      <span class="material-icons">chevron_left</span>
+    </button>
+    <div class="gallery-track">
+      <img *ngFor="let image of images" [src]="image" alt="Gallery image" class="gallery-img" />
+    </div>
+    <button class="gallery-arrow right" (click)="scrollRight()">
+      <span class="material-icons">chevron_right</span>
+    </button>
+  </div>
+</div>

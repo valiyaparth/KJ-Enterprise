@@ -1,0 +1,12 @@
+<div class="service-section">
+<h2 class="section-title">
+  Our Services
+</h2>
+<div class="services">
+  <mat-card *ngFor="let service of services" class="service-card" @fadeIn>
+    <mat-icon class="service-icon">{{ service.icon }}</mat-icon>
+    <mat-card-title class="service-title">{{ service.title }}</mat-card-title>
+    <mat-card-content class="service-description">{{ service.description }}</mat-card-content>
+  </mat-card>
+</div>
+</div>
