@@ -6,11 +6,16 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+  }
 }
 
 .why-us-container {
   max-width: 1200px;
   width: 100%;
+  margin: 0 auto;
   position: relative;
   z-index: 1;
 }
@@ -55,7 +60,7 @@
 }
 
 .section-title{
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 5vw, 2.5rem);
   font-weight: 700;
   text-align: center;
   margin-bottom: 3rem;
@@ -115,6 +120,8 @@
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  min-width: 0;
+  max-width: 100%;
   
   &::before {
     content: '';
@@ -173,7 +180,7 @@
   flex: 1;
   
   h3 {
-    font-size: 1.25rem;
+    font-size: clamp(1.1rem, 2.5vw, 1.25rem);
     font-weight: 500;
     color: #1B263B;
     margin: 0 0 0.5rem 0;
@@ -181,7 +188,7 @@
   }
   
   p {
-    font-size: 0.95rem;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
     color: #1B263B;
     margin: 0;
     line-height: 1.5;

@@ -1,9 +1,75 @@
-<div class="hero-bg">
-  <div class="hero-doodle">
-    <img src="machine-doodle(1).png" alt="Laser Machine Doodle" />
+<div class="hero-bg" [@heroAnimation]>
+  <!-- Animated Background Elements -->
+  <div class="background-elements">
+    <div class="floating-orb orb-1"></div>
+    <div class="floating-orb orb-2"></div>
+    <div class="floating-orb orb-3"></div>
+    <div class="floating-orb orb-4"></div>
+    
+    <div class="bg-blur blur-1"></div>
+    <div class="bg-blur blur-2"></div>
+    <div class="bg-blur blur-3"></div>
   </div>
-  <div class="hero-content">
-    <h1>KJ Enterprise</h1>
-    <p>The One stop shop for your home decor, business gifts, personalized gifts and more.</p>
+
+  <!-- Animated Particles -->
+  <div class="particles-container" #particlesContainer></div>
+
+  <!-- Hero Content -->
+  <div class="hero-content" [@contentAnimation]>
+    <div class="company-badge">
+      <span class="badge-icon">✨</span>
+      <span class="badge-text">Premium Craftsmanship</span>
+    </div>
+    
+    <h1 class="hero-title">
+      <span class="title-line">KJ Enterprise</span>
+      <span class="title-gradient">Crafting Excellence</span>
+    </h1>
+    
+    <p class="hero-description">
+      The One stop shop for your home decor, business gifts, personalized gifts and more. 
+      Where traditional artistry meets modern innovation.
+    </p>
+    
+    <div class="hero-actions">
+      <button 
+        mat-raised-button 
+        color="primary" 
+        class="primary-cta"
+        routerLink="/products"
+        (mouseenter)="onButtonHover($event)"
+        (mouseleave)="onButtonLeave($event)"
+      >
+        <mat-icon>explore</mat-icon>
+        Explore Collection
+      </button>
+      
+      <button 
+        mat-stroked-button 
+        class="secondary-cta"
+        routerLink="/about"
+      >
+        <mat-icon>info</mat-icon>
+        Learn More
+      </button>
+    </div>
+  </div>
+
+  <!-- Enhanced Hero Doodle -->
+  <div class="hero-doodle" [@doodleAnimation]>
+    <div class="doodle-container">
+      <div class="doodle-glow"></div>
+      <div class="doodle-backdrop"></div>
+      <img 
+        src="machine-doodle(1).png" 
+        alt="Laser Machine Doodle" 
+        (error)="onImageError($event)"
+        class="doodle-image"
+      />
+      <div class="doodle-overlay">
+        <div class="tech-grid"></div>
+        <div class="pulse-ring"></div>
+      </div>
+    </div>
   </div>
 </div>

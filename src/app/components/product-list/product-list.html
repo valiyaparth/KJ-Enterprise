@@ -1,8 +1,64 @@
-<div class="products">
-  <mat-card *ngFor="let product of products" class="product-card">
-    <img mat-card-image [src]="product.image" alt="{{ product.name }}">
-    <mat-card-title>{{ product.name }}</mat-card-title>
-    <mat-card-content>{{ product.description }}</mat-card-content>
-    <button mat-button color="primary">Inquire</button>
-  </mat-card>
+<div class="products-container">
+  <div class="products-grid">
+    <div 
+      class="product-card" 
+      *ngFor="let product of products; let i = index"
+      [style.animation-delay]="(i * 0.1) + 's'"
+      (mouseenter)="onCardHover($event)"
+      (mouseleave)="onCardLeave($event)"
+    >
+      <div class="card-glow"></div>
+      
+      <div class="product-image-container">
+        <img 
+          [src]="product.image" 
+          [alt]="product.name"
+          class="product-image"
+          (error)="onImageError($event)"
+        >
+        <div class="image-overlay">
+          <div class="overlay-gradient"></div>
+          <button 
+            class="favorite-btn"
+            (click)="toggleFavorite(product)"
+            [class.active]="product.isFavorite"
+            mat-icon-button
+          >
+            <mat-icon>{{ product.isFavorite ? 'favorite' : 'favorite_border' }}</mat-icon>
+          </button>
+        </div>
+      </div>
+      
+      <div class="product-content">
+        <div class="product-header">
+          <h3 class="product-title">{{ product.name }}</h3>
+          <span class="product-category">{{ product.category }}</span>
+        </div>
+        
+        <p class="product-description">{{ product.description }}</p>
+        
+        <div class="product-actions">
+          <button 
+            mat-raised-button 
+            color="primary" 
+            class="inquire-btn"
+            (click)="onInquire(product)"
+            matRipple
+          >
+            <mat-icon>chat</mat-icon>
+            Inquire Now
+          </button>
+          
+          <button 
+            mat-icon-button 
+            class="share-btn"
+            (click)="onShare(product)"
+            matRipple
+          >
+            <mat-icon>share</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

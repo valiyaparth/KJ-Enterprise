@@ -1,7 +1,13 @@
 <mat-toolbar color="primary" class="navbar">
-    <span class="logo" routerLink="/">KJ Enterprise</span>
-    <span class="spacer"></span>
-    <a mat-button routerLink="/">Home</a>
-    <a mat-button routerLink="/products">Products</a>
-    <a mat-button routerLink="/contact">Contact</a>
+  <span class="logo" routerLink="/">KJ Enterprise</span>
+  <span class="spacer"></span>
+  <button class="menu-btn" mat-icon-button (click)="toggleMenu()" aria-label="Toggle navigation">
+    <mat-icon>{{ menuOpen ? 'close' : 'menu' }}</mat-icon>
+  </button>
+  <div class="menu-backdrop" [class.open]="menuOpen" (click)="closeMenu()"></div>
+  <nav class="nav-links" [class.open]="menuOpen">
+    <a mat-button routerLink="/" (click)="closeMenu()">Home</a>
+    <a mat-button routerLink="/products" (click)="closeMenu()">Products</a>
+    <a mat-button routerLink="/contact" (click)="closeMenu()">Contact</a>
+  </nav>
 </mat-toolbar>
