@@ -2,55 +2,89 @@
   position: relative;
   min-height: 100vh;
   width: 100%;
-  //background: linear-gradient(120deg, #1e293b 60%, #ffd600 100%);
-  background-image: url('/hero.jpg');
-  background-size: cover;
-  background-position: center;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
   overflow: hidden;
-  margin-top: 0;
-  padding-top: 0;
+  padding: 2rem 2rem 2.5rem 2rem;
+  opacity: 0.98;
 }
 
-.hero-bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(30, 41, 59, 0.55);
-  backdrop-filter: blur(2px);
-  z-index: 1;
-}
-
-.hero-glass {
+.hero-content {
   position: relative;
   z-index: 2;
-  background: rgba(255, 255, 255, 0.18);
-  border-radius: 8px;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 3rem 2.5rem;
-  min-width: 600px;
-  margin: 0;
-  text-align: center;
+  max-width: 700px;
+  margin-left: 2vw;
+  margin-top: 2.5rem;
+  text-align: left;
+  background: none;
+  box-shadow: none;
+  padding: 0;
 }
 
 .hero-content h1 {
-  font-size: 2rem;
-  font-weight: 500;
-  color: #778DA9;
-  margin-bottom: 1rem;
-  letter-spacing: 2px;
-  text-shadow: 0 2px 8px rgba(30,41,59,0.3);
+  font-size: 4vw;
+  font-weight: 700;
+  color: #1B263B;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+  line-height: 1.05;
 }
 
 .hero-content p {
-  font-size: 1.3rem;
-  color: #E0E1DD;
-  margin-bottom: 2rem;
-  text-shadow: 0 1px 4px rgba(30,41,59,0.2);
+  font-size: 1.2rem;
+  color: #1B263B;
+  max-width: 90%;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+.hero-doodle {
+  position: absolute;
+  right: 5vw;
+  width: 400px;
+  max-width: 40vw;
+  z-index: 2;
+  pointer-events: none;
+  user-select: none;
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+  .img1, .img2, .img3 {
+    width: 60vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-bg {
+    padding: 1rem 0.5rem 0 0.5rem;
+  }
+  .hero-content {
+    margin-left: 0;
+    max-width: 100%;
+  }
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  .hero-content p {
+    font-size: 0.95rem;
+  }
+  .img1, .img2, .img3 {
+    width: 90vw;
+    left: 0 !important;
+  }
 }
 
 button[mat-raised-button] {

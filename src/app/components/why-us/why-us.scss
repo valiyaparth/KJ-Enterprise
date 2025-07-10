@@ -1,11 +1,223 @@
+.why-us-section {
+  padding: 4rem 2rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.why-us-container {
+  max-width: 1200px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
 .why-us-card {
-    margin: 2rem auto;
-    max-width: 600px;
-    ul {
-      padding-left: 1.5rem;
-      li {
-        margin-bottom: 0.5rem;
-        font-size: 1.1rem;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 3rem;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    0 4px 16px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  }
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+      0 16px 64px rgba(0, 0, 0, 0.15),
+      0 8px 32px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+}
+
+.card-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.section-title{
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  color: #1B263B;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-70%);
+  width: 50px;
+  height: 3px;
+  background-color: #415a77;
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  bottom: -22px;
+  left: 50%;
+  transform: translateX(-30%);
+  width: 50px;
+  height: 3px;
+  background-color: #415a77;
+}
+
+.card-content {
+  position: relative;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.feature-item {
+  background: rgba(255, 255, 255, 0.432);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.1),
+      0 4px 16px rgba(0, 0, 0, 0.05);
+    
+    &::before {
+      opacity: 1;
+    }
+    
+    .feature-icon {
+      transform: scale(1.1);
+      
+      svg {
+        stroke: #ffd89b;
       }
     }
   }
+}
+
+.feature-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+  
+  svg {
+    width: 24px;
+    height: 24px;
+    // stroke: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+  }
+}
+
+.feature-text {
+  flex: 1;
+  
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #1B263B;
+    margin: 0 0 0.5rem 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  p {
+    font-size: 0.95rem;
+    color: #1B263B;
+    margin: 0;
+    line-height: 1.5;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .why-us-section {
+    padding: 2rem 1rem;
+  }
+  
+  .why-us-card {
+    padding: 2rem;
+  }
+  
+  .card-title {
+    font-size: 2rem;
+  }
+  
+  .feature-item {
+    flex-direction: column;
+    text-align: center;
+    
+    .feature-icon {
+      align-self: center;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .card-title {
+    font-size: 1.75rem;
+  }
+  
+  .feature-item {
+    padding: 1.5rem;
+  }
+}

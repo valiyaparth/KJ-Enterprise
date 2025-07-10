@@ -1,14 +1,29 @@
-<div class="gallery-section">
-  <h2 class="section-title">Gallery</h2>
-  <div class="gallery-carousel" #galleryTrack>
-    <button class="gallery-arrow left" (click)="scrollLeft()">
-      <span class="material-icons">chevron_left</span>
-    </button>
-    <div class="gallery-track">
-      <img *ngFor="let image of images" [src]="image" alt="Gallery image" class="gallery-img" />
+<section class="gallery-section">
+    <h2 class="section-title">Gallery</h2>
+    
+    <!-- Top Row - Left to Right -->
+    <div class="gallery-row">
+        <div class="gallery-scroll scroll-left-to-right">
+            <div class="gallery-card" *ngFor="let img of topRowImages">
+                <img [src]="img.src" alt="Laser Art Product" />
+            </div>
+            <!-- Duplicate for seamless loop -->
+            <div class="gallery-card" *ngFor="let img of topRowImages">
+                <img [src]="img.src" alt="Laser Art Product" />
+            </div>
+        </div>
     </div>
-    <button class="gallery-arrow right" (click)="scrollRight()">
-      <span class="material-icons">chevron_right</span>
-    </button>
-  </div>
-</div>
+    
+    <!-- Bottom Row - Right to Left -->
+    <div class="gallery-row">
+        <div class="gallery-scroll scroll-right-to-left">
+            <div class="gallery-card" *ngFor="let img of bottomRowImages">
+                <img [src]="img.src" alt="Laser Art Product" />
+            </div>
+            <!-- Duplicate for seamless loop -->
+            <div class="gallery-card" *ngFor="let img of bottomRowImages">
+                <img [src]="img.src" alt="Laser Art Product" />
+            </div>
+        </div>
+    </div>
+</section>

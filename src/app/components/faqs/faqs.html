@@ -1,8 +1,27 @@
-<mat-accordion>
-    <mat-expansion-panel *ngFor="let faq of faqs">
-      <mat-expansion-panel-header>
-        <mat-panel-title>{{ faq.question }}</mat-panel-title>
-      </mat-expansion-panel-header>
-      <p>{{ faq.answer }}</p>
-    </mat-expansion-panel>
-</mat-accordion>
+<section class="faq-section">
+  <div class="faq-container">
+    <div class="faq-header">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="title-accent"></div>
+      <p class="section-subtitle">Everything you need to know about our laser art services</p>
+    </div>
+    
+    <div class="faq-accordion">
+      <div class="faq-item" *ngFor="let faq of faqs; let i = index" [class.active]="activeIndex === i">
+        <div class="faq-question" (click)="toggleFaq(i)">
+          <h3>{{ faq.question }}</h3>
+          <div class="faq-icon">
+            <svg class="chevron" [class.rotated]="activeIndex === i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6,9 12,15 18,9"></polyline>
+            </svg>
+          </div>
+        </div>
+        <div class="faq-answer" [class.expanded]="activeIndex === i">
+          <div class="answer-content">
+            <p>{{ faq.answer }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
